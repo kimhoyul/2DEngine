@@ -2,6 +2,21 @@
 {
     internal class Engine
     {
+        static protected Engine instance;
+
+        static public Engine Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Engine();
+                }
+
+                return instance;
+            }
+        }
+
         protected bool isRunning = true;
         protected ConsoleKeyInfo keyInfo;
 

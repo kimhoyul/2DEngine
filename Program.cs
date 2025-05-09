@@ -4,13 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Engine engine = new Engine();
-
-            engine.Load();
-
-            engine.Run();
-
-            //engine.Stop();
+            Engine.Instance.Load();
+            Engine.Instance.Run();
         }
     }
 }
