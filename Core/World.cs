@@ -2,12 +2,17 @@
 {
     internal class World
     {
-        public GameObject[] gameObjects;
+        public GameObject[] gameObjects = new GameObject[100];
+        int useGameObjectCount = 0;
+
+        public void Instanciate(GameObject gameObject)
+        {
+            gameObjects[useGameObjectCount] = gameObject;
+            useGameObjectCount++;
+        }
+
         public void Update()
         {
-            if (gameObjects == null)
-                return;
-
             for (int i = 0; i < gameObjects.Length; i++)
             {
                 gameObjects[i].Update();
@@ -16,9 +21,6 @@
 
         public void Render()
         {
-            if (gameObjects == null)
-                return;
-
             for (int i = 0; i < gameObjects.Length; i++)
             {
                 gameObjects[i].Render();
