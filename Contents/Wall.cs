@@ -7,6 +7,7 @@
             X = x;
             Y = y;
             Shape = shape;
+            orderLayer = 2;
         }
     }
 }

@@ -18,14 +18,8 @@
         }
 
         protected bool isRunning = true;
-        protected ConsoleKeyInfo keyInfo;
 
         public World world;
-
-        public void Input()
-        {
-            keyInfo = Console.ReadKey();
-        }
 
         public void Load()
         {
@@ -53,11 +47,6 @@
                         Wall wall = new Wall(x, y, scene[y][x]);
                         world.Instanciate(wall);
                     }
-                    else if (scene[y][x] == ' ')
-                    {
-                        Floor floor = new Floor(x, y, scene[y][x]);
-                        world.Instanciate(floor);
-                    }
                     else if (scene[y][x] == 'P')
                     {
                         Player player = new Player(x, y, scene[y][x]);
@@ -73,8 +62,18 @@
                         Goal goal = new Goal(x, y, scene[y][x]);
                         world.Instanciate(goal);
                     }
+
+                    Floor floor = new Floor(x, y, ' ');
+                    world.Instanciate(floor);
                 }
             }
+
+            world.Sort();
+        }
+
+        public void ProcessInput()
+        {
+            Input.Process();
         }
 
         protected void Update()
@@ -84,6 +83,7 @@
 
         protected void Render()
         {
+            Console.Clear();
             world.Render();
         }
 
@@ -92,7 +92,7 @@
         {
             while (isRunning)
             {
-                Input();
+                ProcessInput();
                 Update();
                 Render(); 
             }

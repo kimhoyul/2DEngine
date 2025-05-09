@@ -5,6 +5,7 @@
         public int X;
         public int Y;
         public char Shape;
+        public int orderLayer;
 
         public virtual void Update()
         {
