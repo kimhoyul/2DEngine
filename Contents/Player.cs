@@ -8,6 +8,7 @@
             Y = y; 
             Shape = shape;
             orderLayer = 4;
+            isCollide = true;
         }
 
         public override void Update()

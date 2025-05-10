@@ -21,24 +21,20 @@
 
         public World world;
 
-        public void Load()
+        public void Load(string filename)
         {
-            string[] scene = {
-                "**********",
-                "*P       *",
-                "*        *",
-                "*        *",
-                "*        *",
-                "*   M    *",
-                "*        *",
-                "*        *",
-                "*       G*",
-                "**********"
-            };
+            List<string> scene = new List<string>();
+
+            StreamReader sr = new StreamReader(filename);
+            while (!sr.EndOfStream)
+            {
+                scene.Add(sr.ReadLine());
+            }
+            sr.Close();
 
             world = new World();
 
-            for (int y = 0; y < scene.Length; y++)
+            for (int y = 0; y < scene.Count; y++)
             {
                 for (int x = 0; x < scene[y].Length; x++)
                 {

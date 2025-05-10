@@ -8,6 +8,7 @@
             Y = y;
             Shape = shape;
             orderLayer = 3;
+            isCollide = true;
         }
     }
 }

@@ -9,6 +9,14 @@
             gameObjects.Add(gameObject);
         }
 
+        public List<GameObject> GetAllGameObjects
+        {
+            get
+            {
+                return gameObjects;
+            }
+        }
+
         public void Update()
         {
             for (int i = 0; i < gameObjects.Count; i++)
